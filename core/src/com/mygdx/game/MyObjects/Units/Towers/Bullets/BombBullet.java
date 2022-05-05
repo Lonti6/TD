@@ -11,13 +11,13 @@ import java.awt.Rectangle;
 
 public class BombBullet implements Bullet{
     private TextureRegion texture;
-    Rectangle rectangle;
+    private Rectangle rectangle;
     private float x, y, rotation, speed;
     private int[] target;
     private String vector;
     boolean finish = false;
-    Animation boomEffect;
-    float elapsedTime;
+    private Animation boomEffect;
+    private float elapsedTime;
     private Array<Monster> enemys;
     private boolean canAttack = true;
 

@@ -105,12 +105,14 @@ public class Monster {
         for (SpecialSkill skill: skills) {
             skill.DoSkill();
         }
-        if (way.size > 0 &&
+
+        if (way.size > 0 && //если цель дошла до заданной точки
                 ((rectangle.x >= way.get(0)[0] && orientationX == 1) ||
                 (rectangle.x <= way.get(0)[0] && orientationX == -1) ||
                 (rectangle.y >= way.get(0)[1] && orientationY == 1) ||
                 (rectangle.y <= way.get(0)[1] && orientationY == -1)))
         {
+            //меняем точку, к которой движется объект и направление движения объекта
             orientationX = way.get(0)[2];
             orientationY = way.get(0)[3];
             rectangle.x = way.get(0)[0];
@@ -118,6 +120,7 @@ public class Monster {
             way.removeIndex(0);
         }
 
+        //смена местоположения
         if (orientationX == 1)
         {
             x += currentSpeed;

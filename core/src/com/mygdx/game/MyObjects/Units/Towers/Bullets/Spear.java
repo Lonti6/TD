@@ -9,9 +9,9 @@ import java.awt.Rectangle;
 public class Spear implements Bullet{
     private TextureRegion texture;
     private Monster target;
-    Rectangle rectangle;
+    private Rectangle rectangle;
     private float x, y, rotation, speed;
-    float modDamage;
+    private float modDamage;
     public Spear(int x, int y, int width, int height, float speed, TextureRegion texture, Monster target, float modDamage)
     {
         this.target = target;
@@ -45,9 +45,10 @@ public class Spear implements Bullet{
 
     public void UpdateLocation()
     {
-        if ((int)(x+rectangle.width/2)<(int)target.GetCenterX())
+        //изменение координат, в зависимости от место положения цели
+        if ((int)(x+rectangle.width/2)<target.GetCenterX())
             x+= speed;
-        else if ((int)(x+rectangle.width/2) > (int)target.GetCenterX())
+        else if ((int)(x+rectangle.width/2) > target.GetCenterX())
             x-= speed;
         if ((int)(y+rectangle.height/2)<target.GetCenterY())
             y+= speed;
@@ -56,12 +57,12 @@ public class Spear implements Bullet{
         rectangle.x = (int) x;
         rectangle.y = (int) y;
 
+        //поворот стрелы
         CheckRotation();
 
-        if (Finish()) {
-            float damage = (int) ((Math.random()*3)+1);
-            System.out.println("Damage: " +damage + " Armor: " + target.armor +" Do: " + (damage*(1-target.armor)));
-            target.SetHealth((target.GetHealth() - modDamage - ( damage )* (1-target.armor)));
+        if (Finish()) { //если стрела достигла цели
+            float damage = (int) ((Math.random()*3)+1); //формирование урона
+            target.SetHealth((target.GetHealth() - modDamage - ( damage )* (1-target.armor)));//нанесение урона
         }
     }
 

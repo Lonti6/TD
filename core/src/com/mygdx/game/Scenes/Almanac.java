@@ -90,28 +90,19 @@ public class Almanac implements Screen {
     }
 
     @Override
-    public void show() {
-    }
+    public void show() {}
 
     @Override
-    public void resize(int i, int i1) {
-
-    }
+    public void resize(int i, int i1) {}
 
     @Override
-    public void pause() {
-
-    }
+    public void pause() {}
 
     @Override
-    public void resume() {
-
-    }
+    public void resume() {}
 
     @Override
-    public void hide() {
-
-    }
+    public void hide() {}
 
     @Override
     public void dispose() {
@@ -157,14 +148,14 @@ public class Almanac implements Screen {
 
         @Override
         public boolean scrolled(float v, float v1) {
-            if (isOpen) {
-                if (windows.get(windows.size - 1).GetY() >= 350) {
-                    int num = windows.get(windows.size - 1).GetY() - 349;
+            if (isOpen) { //если открыт альманах
+                if (windows.get(windows.size - 1).GetY() >= 350) {//если экран не ниже установленного блока
+                    int num = windows.get(windows.size - 1).GetY() - 349;//прокрутка экрана
                     for (InformWindow window : windows)
                         window.SetY((int) (window.GetY() - num));
                 }
-                if (windows.get(0).GetY() <= 350) {
-                    int num = windows.get(0).GetY() - 349;
+                if (windows.get(0).GetY() <= 350) {//если экран не выше установленного блока
+                    int num = windows.get(0).GetY() - 349;//прокрутка экрана
                     for (InformWindow window : windows)
                         window.SetY((int) (window.GetY() - num));
                 }

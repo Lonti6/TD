@@ -1,7 +1,6 @@
 package com.mygdx.game.Scenes;
 
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.ProgressBar;
@@ -17,8 +16,7 @@ public class LoadingScreen implements Screen {
     private Stage stage = new Stage();
     private MyGdxGame game;
 
-    public LoadingScreen(MyGdxGame game)
-    {
+    public LoadingScreen(MyGdxGame game) {
         this.game = game;
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 800, 480);
@@ -34,50 +32,34 @@ public class LoadingScreen implements Screen {
     }
 
     @Override
-    public void show() {
-
-    }
+    public void show() {}
 
     @Override
     public void render(float delta) {
-        if (Loader.Finishing())
-        {
+        if (Loader.Finishing()) {
             MainMenuScreen screen = new MainMenuScreen();
             game.setScreen(screen);
             return;
         }
-
         ScreenUtils.clear(0, 0, 0, 1);
-
         bar.setValue(Loader.GetProgress());
-
         game.batch.begin();
-
         stage.act(delta);
         stage.draw();
-
         game.batch.end();
     }
 
     @Override
-    public void resize(int width, int height) {
-
-    }
+    public void resize(int width, int height) {}
 
     @Override
-    public void pause() {
-
-    }
+    public void pause() {}
 
     @Override
-    public void resume() {
-
-    }
+    public void resume() {}
 
     @Override
-    public void hide() {
-
-    }
+    public void hide() {}
 
     @Override
     public void dispose() {

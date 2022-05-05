@@ -6,7 +6,6 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.Array;
-import com.mygdx.game.MyGdxGame;
 import com.mygdx.game.MyObjects.Units.Monsters.Monster;
 import com.mygdx.game.MyObjects.Units.Monsters.Skills.AuraArmor;
 import com.mygdx.game.MyObjects.Units.Monsters.Skills.Regeneration;
@@ -64,20 +63,6 @@ public class Helper {
         return floats;
     }
 
-    public static int FindMin(Array<Double> array)
-    {
-        double min = array.get(0);
-        int minIndex = 0;
-        for (int i = 1; i<array.size; i++)
-        {
-            if (array.get(i) < min)
-            {
-                min = array.get(i);
-                minIndex = i;
-            }
-        }
-        return minIndex;
-    }
     public static Monster SpawnMonster(String monster)
     {
         float heath = 0;

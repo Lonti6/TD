@@ -1,6 +1,5 @@
 package com.mygdx.game.MyObjects.Units.Monsters.Skills;
 
-import com.mygdx.game.MyObjects.Helper;
 import com.mygdx.game.MyObjects.Units.Monsters.Monster;
 
 import java.awt.Rectangle;

@@ -24,7 +24,7 @@ public class SpearTower extends Tower {
     private Button icon;
     private boolean buildMenu = false;
     private Vector3 vector;
-    int modDamage;
+    private int modDamage;
 
     public SpearTower(FoundationTower tower, Texture texture, Sound attackSound) {
         this.rectangle = tower.rectangle;
@@ -61,10 +61,12 @@ public class SpearTower extends Tower {
         int enemyIndex = -1;
         if (enemys.size > 0)
         {
+            //вычисление стартового расстояния до противника
             double length = Math.sqrt(Math.pow(enemys.get(0).GetX()-rectangle.x, 2)+Math.pow(enemys.get(0).GetY()-rectangle.y, 2));
             enemyIndex = 0;
             for (int i = 1; i<enemys.size; i++)
             {
+                //если расстояние до текущего противника ближе, то меняем ближайшее расстояние до противника и его индекс
                 if (length > Math.sqrt(Math.pow(enemys.get(i).GetX()-rectangle.x, 2)+Math.pow(enemys.get(i).GetY()-rectangle.y, 2)))
                 {
                     length = Math.sqrt(Math.pow(enemys.get(i).GetX()-rectangle.x, 2)+Math.pow(enemys.get(i).GetY()-rectangle.y, 2));
@@ -72,6 +74,7 @@ public class SpearTower extends Tower {
                 }
             }
         }
+        //возвращаем индекс противника
         return enemyIndex;
     }
 
